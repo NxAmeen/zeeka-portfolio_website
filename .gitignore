@@ -3,3 +3,9 @@ __pycache__/
 refine.py
 make-card.py
 expand-media.py
+
+.tools/
+create-demos.py
+revise-site.py
+
+version-assets.py

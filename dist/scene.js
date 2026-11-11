@@ -1,6 +1,6 @@
 import * as T from './vendor/three.module.js';
 // Original primitive geometry. No third-party models, textures or product CAD assets.
-export function mountScenes(){mount('hero-scene',false);mount('journey-scene',false);const gear=document.getElementById('gear-scene');const observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){mount('gear-scene',true);observer.disconnect()}},{rootMargin:'300px'});observer.observe(gear);}
+export function mountScenes(){mount('hero-scene',false);mount('journey-scene',false);for(const [id,kind] of [['gear-scene',true],['transition-scene','reel']]){const host=document.getElementById(id);if(!host)continue;const observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){mount(id,kind);observer.disconnect()}},{rootMargin:'300px'});observer.observe(host);}}
 function mount(id,isGear){
  const host=document.getElementById(id);let renderer;try{renderer=new T.WebGLRenderer({alpha:true,antialias:innerWidth>767,powerPreference:'low-power'});}catch{return;}
  renderer.setPixelRatio(Math.min(devicePixelRatio,innerWidth<768?1:1.6));renderer.setClearColor(0x000000,0);host.appendChild(renderer.domElement);renderer.domElement.setAttribute('aria-hidden','true');
@@ -8,7 +8,13 @@ function mount(id,isGear){
  const key=new T.DirectionalLight(0xe8dcff,6);key.position.set(-3,4,5);scene.add(key);const rim=new T.PointLight(0x7733ff,35,15);rim.position.set(3,-1,2);scene.add(rim);const fill=new T.PointLight(0xc2a2ff,20,15);fill.position.set(-3,-2,-1);scene.add(fill);
  const group=new T.Group();scene.add(group);const lavender=new T.MeshStandardMaterial({color:0x9873d4,metalness:.7,roughness:.25});const dark=new T.MeshStandardMaterial({color:0x24212c,metalness:.65,roughness:.3});const trim=new T.MeshStandardMaterial({color:0xb49ad8,metalness:.8,roughness:.2});
  function mesh(geometry,material,x=0,y=0,z=0){const m=new T.Mesh(geometry,material);m.position.set(x,y,z);group.add(m);return m;}
- if(!isGear){
+ if(isGear==='reel'){
+  const rim=mesh(new T.TorusGeometry(1.45,.12,12,72),lavender);
+  mesh(new T.CylinderGeometry(.3,.3,.22,32),trim).rotation.x=Math.PI/2;
+  for(let i=0;i<6;i++){const a=i*Math.PI/3;const spoke=mesh(new T.BoxGeometry(.13,1.35,.12),lavender,Math.sin(a)*.75,Math.cos(a)*.75,0);spoke.rotation.z=-a;mesh(new T.TorusGeometry(.33,.055,8,28),trim,Math.sin(a)*.89,Math.cos(a)*.89,.08);}
+  const film=mesh(new T.TorusGeometry(1.8,.025,6,70,Math.PI*1.6),trim);film.rotation.z=-1;
+  group.rotation.y=.4;
+ }else if(!isGear){
   const knot=mesh(new T.TorusKnotGeometry(1.05,.27,innerWidth<768?80:160,12,2,3),lavender);knot.rotation.set(.5,.1,.4);
   const core=mesh(new T.IcosahedronGeometry(.7,1),new T.MeshStandardMaterial({color:0x604398,metalness:.55,roughness:.3,flatShading:true}));core.rotation.z=.5;
   const orbit=mesh(new T.TorusGeometry(1.95,.012,6,100),trim);orbit.rotation.set(1.2,.4,.4);
@@ -26,6 +32,6 @@ function mount(id,isGear){
  const visibility=new IntersectionObserver(entries=>{visible=entries[0].isIntersecting});visibility.observe(host);
  window.addEventListener('portfolio-scroll',e=>{progress=e.detail.progress;step=e.detail.step;});
  renderer.domElement.addEventListener('webglcontextlost',e=>{e.preventDefault();host.classList.remove('scene-ready');cancelAnimationFrame(frame);});
- const clock=new T.Clock();function draw(){frame=requestAnimationFrame(draw);if(!visible||document.hidden)return;const time=clock.getElapsedTime();if(!isGear){group.rotation.y=time*.11+progress*3;group.rotation.z=Math.sin(time*.25)*.12+step*.045;group.position.y=Math.sin(time*.6)*.08;}else{group.rotation.y=-.5+Math.sin(time*.35)*.22;group.position.y=.35+Math.sin(time*.6)*.05;}renderer.render(scene,camera);host.classList.add('scene-ready');}draw();
+ const clock=new T.Clock();function draw(){frame=requestAnimationFrame(draw);if(!visible||document.hidden)return;const time=clock.getElapsedTime();if(isGear==='reel'){group.rotation.z=time*.12+progress*5;group.rotation.y=.35+Math.sin(time*.3)*.2;group.position.y=Math.sin(time*.5)*.08;}else if(!isGear){group.rotation.y=time*.11+progress*3;group.rotation.z=Math.sin(time*.25)*.12+step*.045;group.position.y=Math.sin(time*.6)*.08;}else{group.rotation.y=-.5+Math.sin(time*.35)*.22;group.position.y=.35+Math.sin(time*.6)*.05;}renderer.render(scene,camera);host.classList.add('scene-ready');}draw();
  window.addEventListener('pagehide',()=>{cancelAnimationFrame(frame);renderer.dispose();scene.traverse(o=>{o.geometry?.dispose();if(o.material)o.material.dispose()})},{once:true});
 }

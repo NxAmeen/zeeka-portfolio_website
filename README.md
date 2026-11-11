@@ -1,5 +1,9 @@
 # Ameen Nizar / zeekaedits
 
+Latest revision: header/footer use Ameen Nizar; zeekaedits remains the media identity. A scroll-reactive 3D film reel appears between tech and media. Detailed software techniques, editing styles and colour grading are editable in content.js. responsive.css adds fluid phone/tablet/desktop/ultrawide layouts.
+
+Three original six-second silent demo MP4s and cover images live in dist/assets/demos. These are generated motion studies, clearly marked as demos, not client work. They play on click with native controls. Replace each film's url/poster and set demo:false when adding real work. No external video hosting is required for the included samples. Video playback and switching were checked, along with overflow at 320, 360, 768, 1024, 1392, 1920 and 3840 px. These checks do not guarantee every device or browser combination.
+
 Original static portfolio with Three.js primitive scenes, Anime.js, Swiper, custom CSS and vanilla JavaScript. No framework, build step or package manager is required.
 
 ## Run locally

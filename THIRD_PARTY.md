@@ -1,5 +1,7 @@
 # Asset and dependency notices
 
+The demo MP4s and JPEG covers in dist/assets/demos are original procedural motion graphics created for this portfolio. They contain no third-party footage, music or client material. The offline encoder is not shipped with the site.
+
 - Three.js 0.180.0: MIT, Three.js Authors. Licence: dist/vendor/licenses/three.txt.
 - Anime.js 4.0.2: MIT, Julian Garnier. Licence: dist/vendor/licenses/anime.txt.
 - Swiper 11.2.10: MIT, Vladimir Kharlampidi. Licence: dist/vendor/licenses/swiper.txt. Bundled headers preserved.

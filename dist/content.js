@@ -35,7 +35,19 @@ export const content = {
     {number:'02', title:'Inside the edit', subtitle:'VIDEO EDITING', text:'Turn raw footage into a clear, engaging sequence. Shape the story with shot selection, pacing and transitions that serve the moment.', terms:['Footage selection & organisation','Narrative structure & pacing','Music-led cuts & transitions','Reels & longer-form edits']},
     {number:'03', title:'The finishing touches', subtitle:'POST-PRODUCTION', text:'Bring the film together through colour, sound and considered graphics. Keep the final delivery suited to the screen it will live on.', terms:['Colour correction & visual consistency','Titles, captions & motion accents','Audio balance & music timing','Platform-specific framing & exports']}
   ],
-  mediaToolDetails: ['Timeline editing, sequencing, audio and final exports.','Animated typography, titles and motion graphics.','Thumbnails, graphic elements and image compositing.','Photo selection, tonal adjustments and consistent colour.'],
+  mediaToolDetails: ['Shape an edit from the first assembly to delivery: select takes, refine pacing, connect scenes and balance picture with sound.','Add movement with intention: animated titles, kinetic typography and graphic elements that support the story.','Create the supporting visuals around a film, from clean thumbnails to carefully layered graphic elements.','Build a consistent photographic look through exposure, contrast, colour and selective adjustments.'],
+  mediaToolSkills: [
+    ['Timeline organisation & rough cuts','J-cuts, L-cuts & match cuts','Speed ramps & beat-synced edits','Lumetri correction & shot matching','Audio levels, captions & exports'],
+    ['Keyframes & easing curves','Kinetic typography & title sequences','Masks, tracking & compositing','Motion accents & transitions'],
+    ['Layers, masks & selections','Retouching & compositing','Thumbnails & cover artwork','Typography & layout'],
+    ['Exposure & white balance','Tone curves & HSL adjustments','Selective masks & local edits','Consistent photo colour & exports']
+  ],
+  editingStyles: [
+    {title:'Cinematic storytelling',text:'Deliberate pacing, motivated transitions and space for atmosphere. Let the sequence build a feeling rather than simply move through shots.',tags:['Narrative flow','J-cuts & L-cuts','Sound-led transitions']},
+    {title:'High-energy reels',text:'A clear opening, tight selects and music-led rhythm. Use speed changes, punchy cuts and captions to keep a short piece moving.',tags:['Beat-sync','Speed ramps','Vertical framing']},
+    {title:'Clean, minimal edits',text:'Simple cuts, restrained graphics and a focus on the subject. Keep the message readable and give the strongest images room to work.',tags:['Match cuts','Subtle motion','Clear typography']},
+    {title:'Colour correction & grading',text:'Start with balanced exposure and white balance, match shots, then shape contrast, colour and mood. Keep skin tones and visual continuity in mind.',tags:['Shot matching','Curves & HSL','Creative looks']}
+  ],
   mediaProcess: [
     {title:'Find the story', text:'Start with the message, audience and feeling. Gather references and outline the shots that will carry the idea.'},
     {title:'Capture with intent', text:'Plan framing and movement, then capture the key moments and supporting details that give the edit options.'},
@@ -46,8 +58,8 @@ export const content = {
   gear: ['Sony a7 IV','G Master 24–70 mm','DJI RS 4'],
   // Replace demo records with { title, role, tools, caption, url } for your real work.
   films: [
-    {title:'Motion & atmosphere',category:'CINEMATIC FILM',format:'Landscape · 16:9',role:'Videography & editing — demo',tools:'Premiere Pro · After Effects',caption:'A place for a film built around atmosphere, deliberate movement and a strong visual rhythm.',story:'Use this space to explain the brief, what you filmed, how you approached the edit and the final result.',url:null,poster:null},
-    {title:'A different perspective',category:'VISUAL STORY',format:'Landscape · 16:9',role:'Camera & post-production — demo',tools:'Premiere Pro · Lightroom',caption:'A place for work that finds a story in the details: a setting, a subject and the moments between.',story:'Add the context, your responsibilities and the creative decisions behind the finished piece.',url:null,poster:null},
-    {title:'Made for the moment',category:'SOCIAL REEL',format:'Vertical · 9:16',role:'Video editing — demo',tools:'Premiere Pro · After Effects',caption:'A place for a short-form edit with a clear opening, expressive pacing and a memorable finish.',story:'Describe your hook, footage selection, sound choices and how you adapted the edit for a vertical screen.',url:null,poster:null}
+    {title:'Motion & atmosphere',category:'CINEMATIC FILM',format:'Landscape · 16:9',role:'Videography & editing — demo',tools:'Premiere Pro · After Effects',caption:'An original animated demo exploring flowing shapes and a cinematic title treatment. This is a playback sample, not my client work.',story:'Use this space to explain the brief, what you filmed, how you approached the edit and the final result.',url:'./assets/demos/motion.mp4',poster:'./assets/demos/motion.jpg',demo:true},
+    {title:'A different perspective',category:'VISUAL STORY',format:'Landscape · 16:9',role:'Camera & post-production — demo',tools:'Premiere Pro · Lightroom',caption:'An original geometric motion demo exploring changing perspective. This is a playback sample, not my client work.',story:'Add the context, your responsibilities and the creative decisions behind the finished piece.',url:'./assets/demos/perspective.mp4',poster:'./assets/demos/perspective.jpg',demo:true},
+    {title:'Made for the moment',category:'SOCIAL REEL',format:'Vertical · 9:16',role:'Video editing — demo',tools:'Premiere Pro · After Effects',caption:'An original vertical motion demo for the reel viewer. This is a playback sample, not my client work.',story:'Describe your hook, footage selection, sound choices and how you adapted the edit for a vertical screen.',url:'./assets/demos/moment.mp4',poster:'./assets/demos/moment.jpg',demo:true}
   ]
 };

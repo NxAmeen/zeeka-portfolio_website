@@ -1,5 +1,5 @@
-import { initMedia } from './media.js';
-import { content as c } from './content.js';
+import { initMedia } from './media.js?v=3';
+import { content as c } from './content.js?v=3';
 const $ = s => document.querySelector(s);
 const escape = s => String(s).replace(/[&<>"']/g, x => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));
 const safeUrl = url => { try { const u = new URL(url, location.href); return ['https:','http:'].includes(u.protocol) ? u.href : null; } catch { return null; } };
@@ -25,6 +25,6 @@ window.addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimation
 if(!reduced&&matchMedia('(pointer:fine)').matches){const cursor=$('.cursor');window.addEventListener('pointermove',e=>{cursor.style.opacity='1';cursor.style.transform=`translate(${e.clientX-10}px,${e.clientY-10}px)`;cursor.style.width=cursor.style.height=e.target.closest('a,button,summary')?'0px':'20px';},{passive:true});document.addEventListener('pointerleave',()=>cursor.style.opacity='0');}
 // Low-memory/data-saving/reduced-motion devices keep the CSS illustrations instead of WebGL.
 if(!reduced&&!navigator.connection?.saveData&&!(navigator.deviceMemory&&navigator.deviceMemory<4)){
-  const load=()=>import('./scene.js').then(m=>m.mountScenes()).catch(()=>{});
+  const load=()=>import('./scene.js?v=3').then(m=>m.mountScenes()).catch(error=>console.warn('3D illustration fallback:',error));
   if('requestIdleCallback'in window)requestIdleCallback(load,{timeout:1800});else setTimeout(load,600);
 }
