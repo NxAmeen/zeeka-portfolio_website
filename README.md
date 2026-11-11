@@ -68,3 +68,10 @@ After changing hosting, update og:url and og:image in dist/index.html to the fin
 The reference has no 3D. This version adds original Three.js scenes with the user's approval and retains its purple/dark palette, Montserrat/Unbounded typography, glow treatment, rounded project cards and carousel concept. Layout is adapted for tech-first/media-second content; this is not a pixel-identical copy. No author portraits, screenshots, text or app source are reused.
 
 Native IntersectionObserver replaces ScrollReveal to avoid its unresolved proprietary-use licensing requirement. Anime.js and Swiper are retained. Reveals run once, hero text is not endlessly cycled, and the carousel rewinds rather than using an insufficient-slide infinite loop. The preloader is a brief intro with a timed exit, not a false asset percentage. Portrait is replaced by original 3D. Social/project links and reels remain user-approved demo slots.
+
+
+## Expanded media section
+
+The screening-room carousel is in media.js/media.css. It supports previous/next, thumbnail selection, arrow keys and horizontal touch swipes. There is no autoplay between works. Only one player is mounted, so changing work stops the previous video. Supported players: YouTube (including Shorts), Vimeo numeric links, MP4 and WebM. Other links open on their original site.
+
+Edit `films` in content.js: title, category, format, role, tools, caption, story, url and optional poster. Set real url and poster values to replace the labelled demo illustration. Film descriptions and attribution should describe your actual contribution. `mediaCraft`, `mediaProcess`, `mediaToolDetails`, `mediaIntro` and `gearDetails` control the expanded editorial content.

@@ -29,10 +29,25 @@ export const content = {
   ],
   log: [{date:'2026-11-11',title:'Where I am, and what comes next',text:'Python, SQL, machine learning, NLP and n8n are completed learning foundations. My current focus is Claude skills, AI agents, Higgsfield and automation. Next: deeper study of ANN, deep learning, LLMs and RAG.'}],
   mediaTools: ['Premiere Pro','After Effects','Photoshop','Lightroom'],
+  mediaIntro: 'From the first idea to the final cut, I bring videography and editing together. My focus is the feeling of a film: the right frame, a deliberate camera move, and an edit that gives every moment room to land.',
+  mediaCraft: [
+    {number:'01', title:'Behind the camera', subtitle:'VIDEOGRAPHY', text:'Build a visual story through composition, light and movement. Find the details that give a place, person or product its character.', terms:['Shot planning & visual references','Composition & framing','Camera movement & gimbal shots','Detail shots & supporting footage']},
+    {number:'02', title:'Inside the edit', subtitle:'VIDEO EDITING', text:'Turn raw footage into a clear, engaging sequence. Shape the story with shot selection, pacing and transitions that serve the moment.', terms:['Footage selection & organisation','Narrative structure & pacing','Music-led cuts & transitions','Reels & longer-form edits']},
+    {number:'03', title:'The finishing touches', subtitle:'POST-PRODUCTION', text:'Bring the film together through colour, sound and considered graphics. Keep the final delivery suited to the screen it will live on.', terms:['Colour correction & visual consistency','Titles, captions & motion accents','Audio balance & music timing','Platform-specific framing & exports']}
+  ],
+  mediaToolDetails: ['Timeline editing, sequencing, audio and final exports.','Animated typography, titles and motion graphics.','Thumbnails, graphic elements and image compositing.','Photo selection, tonal adjustments and consistent colour.'],
+  mediaProcess: [
+    {title:'Find the story', text:'Start with the message, audience and feeling. Gather references and outline the shots that will carry the idea.'},
+    {title:'Capture with intent', text:'Plan framing and movement, then capture the key moments and supporting details that give the edit options.'},
+    {title:'Shape the rhythm', text:'Build the sequence, refine the pacing, and bring picture, music and sound into the same conversation.'},
+    {title:'Refine & deliver', text:'Review the cut, polish colour and graphics, then prepare the right framing and export for its destination.'}
+  ],
+  gearDetails: ['The camera at the centre of my filming setup.','A flexible focal range for wider scenes, closer details and portraits.','Controlled, stabilised camera movement for flowing shots.'],
   gear: ['Sony a7 IV','G Master 24–70 mm','DJI RS 4'],
   // Replace demo records with { title, role, tools, caption, url } for your real work.
   films: [
-    {title:'Motion & atmosphere',role:'Demo layout',tools:'Premiere Pro · After Effects',caption:'An illustrative title sequence. This is not a client project or a sample of Ameen’s work.',url:null},
-    {title:'A different perspective',role:'Demo layout',tools:'Premiere Pro · Lightroom',caption:'A second portfolio slot, ready for a reel and its production story.',url:null}
+    {title:'Motion & atmosphere',category:'CINEMATIC FILM',format:'Landscape · 16:9',role:'Videography & editing — demo',tools:'Premiere Pro · After Effects',caption:'A place for a film built around atmosphere, deliberate movement and a strong visual rhythm.',story:'Use this space to explain the brief, what you filmed, how you approached the edit and the final result.',url:null,poster:null},
+    {title:'A different perspective',category:'VISUAL STORY',format:'Landscape · 16:9',role:'Camera & post-production — demo',tools:'Premiere Pro · Lightroom',caption:'A place for work that finds a story in the details: a setting, a subject and the moments between.',story:'Add the context, your responsibilities and the creative decisions behind the finished piece.',url:null,poster:null},
+    {title:'Made for the moment',category:'SOCIAL REEL',format:'Vertical · 9:16',role:'Video editing — demo',tools:'Premiere Pro · After Effects',caption:'A place for a short-form edit with a clear opening, expressive pacing and a memorable finish.',story:'Describe your hook, footage selection, sound choices and how you adapted the edit for a vertical screen.',url:null,poster:null}
   ]
 };
