@@ -4,3 +4,14 @@
 
 #journey-scene{position:absolute;inset:-30px;opacity:.3;pointer-events:none}#journey-scene canvas{width:100%;height:100%}.progress-orbit>span,.progress-orbit>small{position:relative;z-index:1}
 .footer-signature{text-align:center}.codex-credit{margin-top:7px;font-size:10px;letter-spacing:.4px}.codex-credit span{color:var(--light)}.codex-credit b{display:inline-block;margin-left:4px;color:var(--purple)}@media(max-width:600px){.footer-signature{order:3;flex-basis:100%;text-align:left}}
+
+/* The browser positions this cursor directly. Interactive controls keep their native cursors. */
+@media (hover: hover) and (pointer: fine) {
+  html {
+    cursor: url('./assets/lavender-cursor.png') 5 3, auto;
+  }
+
+  a[href], button:not(:disabled), summary {
+    cursor: pointer;
+  }
+}
