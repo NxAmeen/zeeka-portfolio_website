@@ -1,5 +1,5 @@
 import { initMedia } from './media.js?v=3';
-import { content as c } from './content.js?v=3';
+import { content as c } from './content.js?v=4';
 const $ = s => document.querySelector(s);
 const escape = s => String(s).replace(/[&<>"']/g, x => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));
 const safeUrl = url => { try { const u = new URL(url, location.href); return ['https:','http:'].includes(u.protocol) ? u.href : null; } catch { return null; } };
@@ -22,7 +22,6 @@ if(document.readyState==='complete')initialiseLibraries();else window.addEventLi
 let ticking=false;
 function scrollUpdate(){ticking=false;const chapters=[...document.querySelectorAll('.chapter')];let current=0;chapters.forEach((el,i)=>{if(el.getBoundingClientRect().top<innerHeight*.65)current=i;});chapters.forEach((el,i)=>{el.classList.toggle('current',i===current);el.classList.toggle('passed',i<current)});$('#journey-count').textContent=String(current+1).padStart(2,'0');$('.timeline').style.setProperty('--progress',`${(current+.65)/chapters.length*100}%`);$('.progress-orbit').style.setProperty('--orbit',`${current*60}deg`);const transition=document.querySelector('.interlude');const tr=transition.getBoundingClientRect();if(!reduced)transition.querySelector('.interlude-orbit').style.transform='rotate('+(-30+(1-tr.top/innerHeight)*35)+'deg) scale('+(1+Math.max(0,Math.min(1,1-tr.top/innerHeight))*.4)+')';let active='';document.querySelectorAll('main section[id]').forEach(s=>{if(s.getBoundingClientRect().top<innerHeight*.4)active=s.id;});document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('active',a.hash==='#'+active));window.dispatchEvent(new CustomEvent('portfolio-scroll',{detail:{step:current,progress:scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight)}}));}
 window.addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(scrollUpdate)}},{passive:true});scrollUpdate();
-if(!reduced&&matchMedia('(pointer:fine)').matches){const cursor=$('.cursor');window.addEventListener('pointermove',e=>{cursor.style.opacity='1';cursor.style.transform=`translate(${e.clientX-10}px,${e.clientY-10}px)`;cursor.style.width=cursor.style.height=e.target.closest('a,button,summary')?'0px':'20px';},{passive:true});document.addEventListener('pointerleave',()=>cursor.style.opacity='0');}
 // Low-memory/data-saving/reduced-motion devices keep the CSS illustrations instead of WebGL.
 if(!reduced&&!navigator.connection?.saveData&&!(navigator.deviceMemory&&navigator.deviceMemory<4)){
   const load=()=>import('./scene.js?v=3').then(m=>m.mountScenes()).catch(error=>console.warn('3D illustration fallback:',error));

@@ -4,7 +4,11 @@ export const content = {
   brief: 'Learning intelligent systems. Creating stories that move.',
   email: 'ameennizar0818@gmail.com', whatsapp: 'https://wa.me/966571773953',
   cv: './assets/Ameen_Nizar_CV.pdf',
-  socials: { LinkedIn: null, Instagram: null, GitHub: null },
+  socials: {
+    LinkedIn: 'https://www.linkedin.com/in/ameen-nizar/',
+    Instagram: 'https://www.instagram.com/zee.ka._/',
+    GitHub: 'https://github.com/'
+  },
   skills: [
     {name:'Python', icon:'Py', detail:'From fundamentals to practical data workflows.', terms:['Data types & control flow','Functions & comprehensions','File handling & exceptions','Object-oriented programming','Modules & automation']},
     {name:'SQL', icon:'SQL', detail:'Turning relational data into useful answers.', terms:['Joins & subqueries','GROUP BY & aggregations','Common table expressions','Window functions','Data cleaning & analysis']},
