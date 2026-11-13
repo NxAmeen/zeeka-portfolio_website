@@ -79,3 +79,9 @@ Native IntersectionObserver replaces ScrollReveal to avoid its unresolved propri
 The screening-room carousel is in media.js/media.css. It supports previous/next, thumbnail selection, arrow keys and horizontal touch swipes. There is no autoplay between works. Only one player is mounted, so changing work stops the previous video. Supported players: YouTube (including Shorts), Vimeo numeric links, MP4 and WebM. Other links open on their original site.
 
 Edit `films` in content.js: title, category, format, role, tools, caption, story, url and optional poster. Set real url and poster values to replace the labelled demo illustration. Film descriptions and attribution should describe your actual contribution. `mediaCraft`, `mediaProcess`, `mediaToolDetails`, `mediaIntro` and `gearDetails` control the expanded editorial content.
+
+## Experience in three sides
+The current gallery is driven by `dist/experience.json`, with four labelled demo slots per side. Replace `src` and `poster` with your files, set `demo` to false, and fill title, role, tools and year. Valid sides: events, brand, mentoring. The three supplied Instagram reels are unassigned until their project is confirmed. Role panels and proof lines are in `dist/experience.js`. The gallery precedes My Creative Toolkit; Canva is included. Demo media is not client work.
+
+## Current film archive
+The Media archive now uses nine real uploaded films and two XDrive posters. Edit `dist/experience.json` for titles, categories, captions and media paths. Categories are events (ITIHA), brand (XDrive), and personal. Videos are optimised H.264/AAC MP4 files with fast-start metadata, loaded only when opened. Posters use WebP. Role summaries remain in `dist/experience.js`. Earlier screening-room and demo-slot instructions above describe superseded versions.

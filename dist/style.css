@@ -15,3 +15,10 @@
     cursor: pointer;
   }
 }
+
+.project-visual.workflow,.project-visual.assistant{display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 50% 50%,#302046,#100d1f);color:var(--light);text-align:center;padding:24px}.project-visual.workflow i,.project-visual.assistant i{display:none}.project-visual.workflow:after{content:"Lead → Review → Send";font:500 16px var(--display)}.project-visual.assistant:after{content:"Brief → Draft → Refine";font:500 16px var(--display)}
+
+/* Project visuals use dedicated classes, separate from the automation section. */
+.project-visual{flex:0 0 170px}.project-visual.workflow:after,.project-visual.assistant:after{display:grid;place-items:center;padding:18px}.project-card>p:not(.outcome){min-height:63px}.project-card .outcome{min-height:105px}.project-controls{display:flex;justify-content:flex-end;gap:12px;margin-bottom:12px}.project-controls button{width:48px;height:48px;display:grid;place-items:center;border:1px solid #534268;border-radius:50%;background:#14101f;color:var(--light);font-size:22px}.project-controls button:hover{background:#302046}.project-controls button:disabled{opacity:.4}.project-controls .swiper-button-lock{display:none}
+
+.skill-builds{list-style:none;margin:24px 0 0;padding:0;border-top:1px solid #302739}.skill-builds li{padding:16px 0;border-bottom:1px solid #302739}.skill-builds li>div{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}.skill-builds strong{font-size:12px;font-weight:500;color:var(--text)}.skill-builds small{font-size:9px;color:var(--light);letter-spacing:.04em}.skill-builds li p{font-size:11px;line-height:1.8;margin:8px 0 0;min-height:0}
