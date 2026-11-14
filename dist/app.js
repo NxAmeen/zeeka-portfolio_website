@@ -1,29 +1,184 @@
-import { initMedia } from './media.js?v=8';
-import { content as c } from './content.js?v=10';
-const $ = s => document.querySelector(s);
-const escape = s => String(s).replace(/[&<>"']/g, x => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));
-const safeUrl = url => { try { const u = new URL(url, location.href); return ['https:','http:'].includes(u.protocol) ? u.href : null; } catch { return null; } };
-const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-$('.hero-brief').textContent=c.brief;
-document.querySelectorAll('.cv-link').forEach(link=>link.href=c.cv);
-document.querySelectorAll('.email-link').forEach(a=>a.href=`mailto:${c.email}`);
-$('.email-text').textContent=c.email;$('.whatsapp-link').href=c.whatsapp;$('#year').textContent=new Date().getFullYear();
-$('#skills').innerHTML=c.skills.map(s=>`<article class="skill reveal"><span class="skill-icon">${escape(s.icon)}</span><h3>${escape(s.name)}</h3><p>${escape(s.detail)}</p><details><summary>Explore skills</summary><ul>${s.terms.map(t=>`<li>${escape(t)}</li>`).join('')}</ul></details>${s.examples?`<ul class="skill-builds" aria-label="Related projects">${s.examples.map(x=>`<li><div><strong>${escape(x.title)}</strong><small>${escape(x.status)}</small></div><p>${escape(x.text)}</p></li>`).join('')}</ul>`:''}</article>`).join('');
-$('#project-cards').innerHTML=c.projects.map(p=>`<article class="swiper-slide project-card"><div class="project-top"><span>${p.number}</span><small>${escape(p.category)}</small></div><div class="project-visual ${p.visual}" role="img" aria-label="Illustrative graphic for ${escape(p.title)}, not a project screenshot">${[45,68,42,87,60,100].map(h=>`<i style="height:${h}%"></i>`).join('')}</div><h3>${escape(p.title)}</h3><p>${escape(p.problem)}</p><p class="outcome">${escape(p.outcome)}</p><div class="tags">${p.stack.map(t=>`<span>${escape(t)}</span>`).join('')}</div>${p.url&&safeUrl(p.url)?`<a class="text-link" href="${escape(safeUrl(p.url))}" target="_blank" rel="noopener">View project ↗</a>`:`<span class="pending">${escape(p.status || 'Completed project')}</span>`}</article>`).join('');
-$('#timeline').innerHTML=c.journey.map((j,i)=>`<article class="chapter" data-step="${i}"><div class="chapter-meta"><span>0${i+1}</span><span>${escape(j.status)}</span></div><h3>${escape(j.title)}</h3><p>${escape(j.text)}</p></article>`).join('');
-$('#learning-log').innerHTML=c.log.map(l=>`<article class="log-entry"><time datetime="${escape(l.date)}">${new Date(l.date+'T12:00:00').toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})}</time><div><h3>${escape(l.title)}</h3><p>${escape(l.text)}</p></div></article>`).join('');
+import { initMedia } from "./media.js?v=8";
+import { content as c } from "./content.js?v=10";
+const $ = (s) => document.querySelector(s);
+const escape = (s) =>
+  String(s).replace(
+    /[&<>"']/g,
+    (x) =>
+      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[
+        x
+      ],
+  );
+const safeUrl = (url) => {
+  try {
+    const u = new URL(url, location.href);
+    return ["https:", "http:"].includes(u.protocol) ? u.href : null;
+  } catch {
+    return null;
+  }
+};
+const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+$(".hero-brief").textContent = c.brief;
+document.querySelectorAll(".cv-link").forEach((link) => (link.href = c.cv));
+document
+  .querySelectorAll(".email-link")
+  .forEach((a) => (a.href = `mailto:${c.email}`));
+$(".email-text").textContent = c.email;
+$(".whatsapp-link").href = c.whatsapp;
+$("#year").textContent = new Date().getFullYear();
+$("#skills").innerHTML = c.skills
+  .map(
+    (s) =>
+      `<article class="skill reveal"><span class="skill-icon">${escape(s.icon)}</span><h3>${escape(s.name)}</h3><p>${escape(s.detail)}</p><details><summary>Explore skills</summary><ul>${s.terms.map((t) => `<li>${escape(t)}</li>`).join("")}</ul></details>${s.examples ? `<ul class="skill-builds" aria-label="Related projects">${s.examples.map((x) => `<li><div><strong>${escape(x.title)}</strong><small>${escape(x.status)}</small></div><p>${escape(x.text)}</p></li>`).join("")}</ul>` : ""}</article>`,
+  )
+  .join("");
+$("#project-cards").innerHTML = c.projects
+  .map(
+    (p) =>
+      `<article class="swiper-slide project-card"><div class="project-top"><span>${p.number}</span><small>${escape(p.category)}</small></div><div class="project-visual ${p.visual}" role="img" aria-label="Illustrative graphic for ${escape(p.title)}, not a project screenshot">${[45, 68, 42, 87, 60, 100].map((h) => `<i style="height:${h}%"></i>`).join("")}</div><h3>${escape(p.title)}</h3><p>${escape(p.problem)}</p><p class="outcome">${escape(p.outcome)}</p><div class="tags">${p.stack.map((t) => `<span>${escape(t)}</span>`).join("")}</div>${p.url && safeUrl(p.url) ? `<a class="text-link" href="${escape(safeUrl(p.url))}" target="_blank" rel="noopener">View project ↗</a>` : `<span class="pending">${escape(p.status || "Completed project")}</span>`}</article>`,
+  )
+  .join("");
+$("#timeline").innerHTML = c.journey
+  .map(
+    (j, i) =>
+      `<article class="chapter" data-step="${i}"><div class="chapter-meta"><span>0${i + 1}</span><span>${escape(j.status)}</span></div><h3>${escape(j.title)}</h3><p>${escape(j.text)}</p></article>`,
+  )
+  .join("");
+$("#learning-log").innerHTML = c.log
+  .map(
+    (l) =>
+      `<article class="log-entry"><time datetime="${escape(l.date)}">${new Date(l.date + "T12:00:00").toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" })}</time><div><h3>${escape(l.title)}</h3><p>${escape(l.text)}</p></div></article>`,
+  )
+  .join("");
 initMedia(c);
-$('#socials').innerHTML=Object.entries(c.socials).map(([label,url])=>url&&safeUrl(url)?`<a href="${escape(safeUrl(url))}" target="_blank" rel="noopener">${escape(label)} ↗</a>`:`<span class="pending">${escape(label)}<small>Link to be added</small></span>`).join('');
-$('#copy-email').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(c.email);$('#copy-status').textContent='Email copied.';}catch{$('#copy-status').textContent=c.email;}setTimeout(()=>$('#copy-status').textContent='',4000)});
-if(!reduced){document.body.classList.add('motion-ready');const reveal=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');reveal.unobserve(e.target)}}),{threshold:.08});document.querySelectorAll('.reveal').forEach(e=>reveal.observe(e));}
+$("#socials").innerHTML = Object.entries(c.socials)
+  .map(([label, url]) =>
+    url && safeUrl(url)
+      ? `<a href="${escape(safeUrl(url))}" target="_blank" rel="noopener">${escape(label)} ↗</a>`
+      : `<span class="pending">${escape(label)}<small>Link to be added</small></span>`,
+  )
+  .join("");
+$("#copy-email").addEventListener("click", async () => {
+  try {
+    await navigator.clipboard.writeText(c.email);
+    $("#copy-status").textContent = "Email copied.";
+  } catch {
+    $("#copy-status").textContent = c.email;
+  }
+  setTimeout(() => ($("#copy-status").textContent = ""), 4000);
+});
+if (!reduced) {
+  document.body.classList.add("motion-ready");
+  const reveal = new IntersectionObserver(
+    (entries) =>
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add("visible");
+          reveal.unobserve(e.target);
+        }
+      }),
+    { threshold: 0.08 },
+  );
+  document.querySelectorAll(".reveal").forEach((e) => reveal.observe(e));
+}
 // Animation libraries load independently: core navigation and content remain usable if one fails.
-function initialiseLibraries(){if(window.Swiper){const slider=new Swiper('.project-slider',{slidesPerView:'auto',spaceBetween:24,grabCursor:true,speed:600,loop:false,rewind:true,navigation:{prevEl:'.project-prev',nextEl:'.project-next'},pagination:{el:'.swiper-pagination',clickable:true},autoplay:false,a11y:{enabled:true}});$('.project-slider').addEventListener('focusin',()=>slider.autoplay?.stop());}if(window.anime&&!reduced){window.anime.animate('.role-line',{opacity:[0,1],translateY:[24,0],duration:900,delay:window.anime.stagger(180,{start:400}),ease:'out(3)'});}}
-if(document.readyState==='complete')initialiseLibraries();else window.addEventListener('load',initialiseLibraries,{once:true});
-let ticking=false;
-function scrollUpdate(){ticking=false;const chapters=[...document.querySelectorAll('.chapter')];let current=0;chapters.forEach((el,i)=>{if(el.getBoundingClientRect().top<innerHeight*.65)current=i;});chapters.forEach((el,i)=>{el.classList.toggle('current',i===current);el.classList.toggle('passed',i<current)});$('#journey-count').textContent=String(current+1).padStart(2,'0');$('.timeline').style.setProperty('--progress',`${(current+.65)/chapters.length*100}%`);$('.progress-orbit').style.setProperty('--orbit',`${current*60}deg`);const transition=document.querySelector('.interlude');const tr=transition.getBoundingClientRect();if(!reduced)transition.querySelector('.interlude-orbit').style.transform='rotate('+(-30+(1-tr.top/innerHeight)*35)+'deg) scale('+(1+Math.max(0,Math.min(1,1-tr.top/innerHeight))*.4)+')';let active='';document.querySelectorAll('main section[id]').forEach(s=>{if(s.getBoundingClientRect().top<innerHeight*.4)active=s.id;});document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('active',a.hash==='#'+active));window.dispatchEvent(new CustomEvent('portfolio-scroll',{detail:{step:current,progress:scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight)}}));}
-window.addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(scrollUpdate)}},{passive:true});scrollUpdate();
+function initialiseLibraries() {
+  if (window.Swiper) {
+    const slider = new Swiper(".project-slider", {
+      slidesPerView: "auto",
+      spaceBetween: 24,
+      grabCursor: true,
+      speed: 600,
+      loop: false,
+      rewind: true,
+      navigation: { prevEl: ".project-prev", nextEl: ".project-next" },
+      pagination: { el: ".swiper-pagination", clickable: true },
+      autoplay: false,
+      a11y: { enabled: true },
+    });
+    $(".project-slider").addEventListener("focusin", () =>
+      slider.autoplay?.stop(),
+    );
+  }
+  if (window.anime && !reduced) {
+    window.anime.animate(".role-line", {
+      opacity: [0, 1],
+      translateY: [24, 0],
+      duration: 900,
+      delay: window.anime.stagger(180, { start: 400 }),
+      ease: "out(3)",
+    });
+  }
+}
+if (document.readyState === "complete") initialiseLibraries();
+else window.addEventListener("load", initialiseLibraries, { once: true });
+let ticking = false;
+function scrollUpdate() {
+  ticking = false;
+  const chapters = [...document.querySelectorAll(".chapter")];
+  let current = 0;
+  chapters.forEach((el, i) => {
+    if (el.getBoundingClientRect().top < innerHeight * 0.65) current = i;
+  });
+  chapters.forEach((el, i) => {
+    el.classList.toggle("current", i === current);
+    el.classList.toggle("passed", i < current);
+  });
+  $("#journey-count").textContent = String(current + 1).padStart(2, "0");
+  $(".timeline").style.setProperty(
+    "--progress",
+    `${((current + 0.65) / chapters.length) * 100}%`,
+  );
+  $(".progress-orbit").style.setProperty("--orbit", `${current * 60}deg`);
+  const transition = document.querySelector(".interlude");
+  const tr = transition.getBoundingClientRect();
+  if (!reduced)
+    transition.querySelector(".interlude-orbit").style.transform =
+      "rotate(" +
+      (-30 + (1 - tr.top / innerHeight) * 35) +
+      "deg) scale(" +
+      (1 + Math.max(0, Math.min(1, 1 - tr.top / innerHeight)) * 0.4) +
+      ")";
+  let active = "";
+  document.querySelectorAll("main section[id]").forEach((s) => {
+    if (s.getBoundingClientRect().top < innerHeight * 0.4) active = s.id;
+  });
+  document
+    .querySelectorAll(".nav-links a")
+    .forEach((a) => a.classList.toggle("active", a.hash === "#" + active));
+  window.dispatchEvent(
+    new CustomEvent("portfolio-scroll", {
+      detail: {
+        step: current,
+        progress:
+          scrollY /
+          Math.max(1, document.documentElement.scrollHeight - innerHeight),
+      },
+    }),
+  );
+}
+window.addEventListener(
+  "scroll",
+  () => {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(scrollUpdate);
+    }
+  },
+  { passive: true },
+);
+scrollUpdate();
 // Low-memory/data-saving/reduced-motion devices keep the CSS illustrations instead of WebGL.
-if(!reduced&&!navigator.connection?.saveData&&!(navigator.deviceMemory&&navigator.deviceMemory<4)){
-  const load=()=>import('./scene.js?v=3').then(m=>m.mountScenes()).catch(error=>console.warn('3D illustration fallback:',error));
-  if('requestIdleCallback'in window)requestIdleCallback(load,{timeout:1800});else setTimeout(load,600);
+if (
+  !reduced &&
+  !navigator.connection?.saveData &&
+  !(navigator.deviceMemory && navigator.deviceMemory < 4)
+) {
+  const load = () =>
+    import("./scene.js?v=3")
+      .then((m) => m.mountScenes())
+      .catch((error) => console.warn("3D illustration fallback:", error));
+  if ("requestIdleCallback" in window)
+    requestIdleCallback(load, { timeout: 1800 });
+  else setTimeout(load, 600);
 }

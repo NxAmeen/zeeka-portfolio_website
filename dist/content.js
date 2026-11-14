@@ -1,74 +1,428 @@
 // Edit portfolio content here. null URLs render honest, inactive link labels.
 export const content = {
-  name: 'Ameen Nizar', brand: 'zeekaedits', location: 'Saudi Arabia',
-  brief: 'Learning intelligent systems. Creating stories that move.',
-  email: 'ameennizar0818@gmail.com', whatsapp: 'https://wa.me/966571773953',
-  cv: './assets/Ameen_Nizar_CV.pdf',
+  name: "Ameen Nizar",
+  brand: "zeekaedits",
+  location: "Saudi Arabia",
+  brief: "Learning intelligent systems. Creating stories that move.",
+  email: "ameennizar0818@gmail.com",
+  whatsapp: "https://wa.me/966571773953",
+  cv: "./assets/Ameen_Nizar_CV.pdf",
   socials: {
-    LinkedIn: 'https://www.linkedin.com/in/ameen-nizar/',
-    Instagram: 'https://www.instagram.com/zee.ka._/',
-    GitHub: 'https://github.com/'
+    LinkedIn: "https://www.linkedin.com/in/ameen-nizar/",
+    Instagram: "https://www.instagram.com/zee.ka._/",
+    GitHub: "https://github.com/",
   },
   skills: [
-    {name:'Python', icon:'Py', detail:'From fundamentals to practical data workflows.', terms:['Data types & control flow','Functions & comprehensions','File handling & exceptions','Object-oriented programming','Modules & automation']},
-    {name:'SQL', icon:'SQL', detail:'Turning relational data into useful answers.', terms:['Joins & subqueries','GROUP BY & aggregations','Common table expressions','Window functions','Data cleaning & analysis']},
-    {name:'Data libraries', icon:'[ ]', detail:'Explore, transform and communicate data.', terms:['NumPy · arrays & broadcasting','Pandas · cleaning & transformation','Matplotlib · visualisation','Seaborn · distributions & correlations','Scikit-learn · pipelines & tuning']},
-    {name:'Machine learning', icon:'ML', detail:'From a good question to an evaluated model.', terms:['Linear, Ridge & Lasso regression','Logistic Regression · KNN · SVM','Decision Trees · Naive Bayes','Random Forest · gradient boosting','K-Means · hierarchical · DBSCAN','PCA · feature engineering','Cross-validation · F1 · ROC-AUC']},
-    {name:'Natural language processing', icon:'Aa', detail:'Finding structure and meaning in language.', terms:['Text cleaning & normalisation','Tokenization · stop-word removal','Stemming & lemmatization','Bag of Words · n-grams · TF-IDF','POS tagging · named entities','Sentiment & text classification']},
-    {name:'Analytics & delivery', icon:'↗', detail:'Taking analysis beyond the notebook.', terms:['Power BI · DAX · Power Query','PostgreSQL · Supabase','FastAPI · REST APIs','Docker · Git · GitHub Actions','Render deployment']},
-    {name:'AI automation', icon:'n8n', detail:'Connect tools, move data and keep a person in control. My n8n learning is complete; the email workflow is ongoing.', terms:['n8n workflows & triggers','API connections & webhooks','Lead validation & data storage','Human approval before delivery'], examples:[{title:'Email automation',status:'Ongoing',text:'Validate leads, store details and review emails before sending.'}]},
-    {name:'AI assistants & agents', icon:'✳', detail:'From document answers to creative assistance. Exploring Claude skills, AI agents and Higgsfield.', terms:['Claude skills — learning','AI agents — learning','Higgsfield — learning','RAG & LLMs — deeper study upcoming'], examples:[{title:'Ask your PDF',status:'Completed',text:'Source-cited answers from documents, with a fallback when an answer is missing.'},{title:'Claude content assistant',status:'Planned concept',text:'Turn a client brief into content ideas, reel scripts and a review checklist.'}]}
+    {
+      name: "Python",
+      icon: "Py",
+      detail: "From fundamentals to practical data workflows.",
+      terms: [
+        "Data types & control flow",
+        "Functions & comprehensions",
+        "File handling & exceptions",
+        "Object-oriented programming",
+        "Modules & automation",
+      ],
+    },
+    {
+      name: "SQL",
+      icon: "SQL",
+      detail: "Turning relational data into useful answers.",
+      terms: [
+        "Joins & subqueries",
+        "GROUP BY & aggregations",
+        "Common table expressions",
+        "Window functions",
+        "Data cleaning & analysis",
+      ],
+    },
+    {
+      name: "Data libraries",
+      icon: "[ ]",
+      detail: "Explore, transform and communicate data.",
+      terms: [
+        "NumPy · arrays & broadcasting",
+        "Pandas · cleaning & transformation",
+        "Matplotlib · visualisation",
+        "Seaborn · distributions & correlations",
+        "Scikit-learn · pipelines & tuning",
+      ],
+    },
+    {
+      name: "Machine learning",
+      icon: "ML",
+      detail: "From a good question to an evaluated model.",
+      terms: [
+        "Linear, Ridge & Lasso regression",
+        "Logistic Regression · KNN · SVM",
+        "Decision Trees · Naive Bayes",
+        "Random Forest · gradient boosting",
+        "K-Means · hierarchical · DBSCAN",
+        "PCA · feature engineering",
+        "Cross-validation · F1 · ROC-AUC",
+      ],
+    },
+    {
+      name: "Natural language processing",
+      icon: "Aa",
+      detail: "Finding structure and meaning in language.",
+      terms: [
+        "Text cleaning & normalisation",
+        "Tokenization · stop-word removal",
+        "Stemming & lemmatization",
+        "Bag of Words · n-grams · TF-IDF",
+        "POS tagging · named entities",
+        "Sentiment & text classification",
+      ],
+    },
+    {
+      name: "Analytics & delivery",
+      icon: "↗",
+      detail: "Taking analysis beyond the notebook.",
+      terms: [
+        "Power BI · DAX · Power Query",
+        "PostgreSQL · Supabase",
+        "FastAPI · REST APIs",
+        "Docker · Git · GitHub Actions",
+        "Render deployment",
+      ],
+    },
+    {
+      name: "AI automation",
+      icon: "n8n",
+      detail:
+        "Connect tools, move data and keep a person in control. My n8n learning is complete; the email workflow is ongoing.",
+      terms: [
+        "n8n workflows & triggers",
+        "API connections & webhooks",
+        "Lead validation & data storage",
+        "Human approval before delivery",
+      ],
+      examples: [
+        {
+          title: "Email automation",
+          status: "Ongoing",
+          text: "Validate leads, store details and review emails before sending.",
+        },
+      ],
+    },
+    {
+      name: "AI assistants & agents",
+      icon: "✳",
+      detail:
+        "From document answers to creative assistance. Exploring Claude skills, AI agents and Higgsfield.",
+      terms: [
+        "Claude skills — learning",
+        "AI agents — learning",
+        "Higgsfield — learning",
+        "RAG & LLMs — deeper study upcoming",
+      ],
+      examples: [
+        {
+          title: "Ask your PDF",
+          status: "Completed",
+          text: "Source-cited answers from documents, with a fallback when an answer is missing.",
+        },
+        {
+          title: "Claude content assistant",
+          status: "Planned concept",
+          text: "Turn a client brief into content ideas, reel scripts and a review checklist.",
+        },
+      ],
+    },
   ],
   projects: [
-    {title:'NightStay',category:'MACHINE LEARNING',number:'01',visual:'night',problem:'Predict the room type of an NYC Airbnb listing from its characteristics.',stack:['Python','scikit-learn','FastAPI','Render'],outcome:'An end-to-end classifier with class probabilities, input validation and 88% reported accuracy.',url:'https://github.com/NxAmeen/Night-Stay---Room-Type-Intelligence'},
-    {title:'Breast ultrasound classifier',status:'Planning stage',category:'DEEP LEARNING',number:'02',visual:'scan',problem:'Classify ultrasound images into normal, benign and malignant categories.',stack:['ResNet50','BUSI','MLflow'],outcome:'Planning a research classifier using ResNet50 and the BUSI dataset, with augmentation, weighted loss and MLflow experiment tracking under consideration. No results yet; not a clinical diagnostic tool.',url:null},
-    {title:'Ask your PDF',category:'RETRIEVAL-AUGMENTED GENERATION',number:'03',visual:'rag',problem:'Find relevant answers inside a PDF without reading every page.',stack:['MiniLM','pgvector','Neon','FastAPI'],outcome:'A completed RAG chatbot with source-cited answers and a fallback when the document does not contain an answer.',url:null},
-    {title:'Olist intelligence',category:'DATA ANALYTICS',number:'04',visual:'charts',problem:'Connect sales, delivery and customer-review data into a clear business picture.',stack:['PostgreSQL','Power BI','DAX'],outcome:'A nine-page report covering revenue, average order value, on-time delivery and seller performance.',url:'https://github.com/NxAmeen/PostgreSql-x-PowerBi'},
-    {title:'Email automation with n8n',status:'Ongoing project',category:'AI AUTOMATION',number:'05',visual:'workflow',problem:'Connect incoming leads to a reviewed email workflow without repeating every step manually.',stack:['n8n','Gmail','APIs','Supabase','Telegram'],outcome:'An ongoing workflow connecting lead validation, data storage and human approval before email delivery.',url:null},
-    {title:'Claude brief-to-content assistant',status:'Planned concept',category:'CLAUDE AUTOMATION',number:'06',visual:'assistant',problem:'Turn a client brief into a structured content plan and first-draft reel scripts.',stack:['Claude','Reusable skills','Human review'],outcome:'A proposed learning project: extract requirements, draft ideas and dialogue, then prepare a review checklist. Implementation and results are still to come.',url:null}
+    {
+      title: "NightStay",
+      category: "MACHINE LEARNING",
+      number: "01",
+      visual: "night",
+      problem:
+        "Predict the room type of an NYC Airbnb listing from its characteristics.",
+      stack: ["Python", "scikit-learn", "FastAPI", "Render"],
+      outcome:
+        "An end-to-end classifier with class probabilities, input validation and 88% reported accuracy.",
+      url: "https://github.com/NxAmeen/Night-Stay---Room-Type-Intelligence",
+    },
+    {
+      title: "Breast ultrasound classifier",
+      status: "Planning stage",
+      category: "DEEP LEARNING",
+      number: "02",
+      visual: "scan",
+      problem:
+        "Classify ultrasound images into normal, benign and malignant categories.",
+      stack: ["ResNet50", "BUSI", "MLflow"],
+      outcome:
+        "Planning a research classifier using ResNet50 and the BUSI dataset, with augmentation, weighted loss and MLflow experiment tracking under consideration. No results yet; not a clinical diagnostic tool.",
+      url: null,
+    },
+    {
+      title: "Ask your PDF",
+      category: "RETRIEVAL-AUGMENTED GENERATION",
+      number: "03",
+      visual: "rag",
+      problem: "Find relevant answers inside a PDF without reading every page.",
+      stack: ["MiniLM", "pgvector", "Neon", "FastAPI"],
+      outcome:
+        "A completed RAG chatbot with source-cited answers and a fallback when the document does not contain an answer.",
+      url: null,
+    },
+    {
+      title: "Olist intelligence",
+      category: "DATA ANALYTICS",
+      number: "04",
+      visual: "charts",
+      problem:
+        "Connect sales, delivery and customer-review data into a clear business picture.",
+      stack: ["PostgreSQL", "Power BI", "DAX"],
+      outcome:
+        "A nine-page report covering revenue, average order value, on-time delivery and seller performance.",
+      url: "https://github.com/NxAmeen/PostgreSql-x-PowerBi",
+    },
+    {
+      title: "Email automation with n8n",
+      status: "Ongoing project",
+      category: "AI AUTOMATION",
+      number: "05",
+      visual: "workflow",
+      problem:
+        "Connect incoming leads to a reviewed email workflow without repeating every step manually.",
+      stack: ["n8n", "Gmail", "APIs", "Supabase", "Telegram"],
+      outcome:
+        "An ongoing workflow connecting lead validation, data storage and human approval before email delivery.",
+      url: null,
+    },
+    {
+      title: "Claude brief-to-content assistant",
+      status: "Planned concept",
+      category: "CLAUDE AUTOMATION",
+      number: "06",
+      visual: "assistant",
+      problem:
+        "Turn a client brief into a structured content plan and first-draft reel scripts.",
+      stack: ["Claude", "Reusable skills", "Human review"],
+      outcome:
+        "A proposed learning project: extract requirements, draft ideas and dialogue, then prepare a review checklist. Implementation and results are still to come.",
+      url: null,
+    },
   ],
   journey: [
-    {title:'Build the foundation',status:'Completed',text:'Python, SQL, NumPy and Pandas. Working with data, one useful question at a time.'},
-    {title:'Learn from data',status:'Completed',text:'Machine learning, evaluation and visual analytics. From exploration to deployed predictions.'},
-    {title:'Work with language',status:'Completed',text:'NLP fundamentals: preprocessing, text representations, linguistic analysis and classification.'},
-    {title:'Connect the workflow',status:'Completed',text:'n8n and practical automation projects: APIs, lead validation and human-approved email workflows.'},
-    {title:'Explore agentic systems',status:'In progress',text:'Claude skills, AI agents, Higgsfield and more capable automation workflows.'},
-    {title:'Go deeper',status:'Upcoming',text:'Deeper study of neural networks, deep learning, LLMs and RAG, building on completed project experience.'}
+    {
+      title: "Build the foundation",
+      status: "Completed",
+      text: "Python, SQL, NumPy and Pandas. Working with data, one useful question at a time.",
+    },
+    {
+      title: "Learn from data",
+      status: "Completed",
+      text: "Machine learning, evaluation and visual analytics. From exploration to deployed predictions.",
+    },
+    {
+      title: "Work with language",
+      status: "Completed",
+      text: "NLP fundamentals: preprocessing, text representations, linguistic analysis and classification.",
+    },
+    {
+      title: "Connect the workflow",
+      status: "Completed",
+      text: "n8n and practical automation projects: APIs, lead validation and human-approved email workflows.",
+    },
+    {
+      title: "Explore agentic systems",
+      status: "In progress",
+      text: "Claude skills, AI agents, Higgsfield and more capable automation workflows.",
+    },
+    {
+      title: "Go deeper",
+      status: "Upcoming",
+      text: "Deeper study of neural networks, deep learning, LLMs and RAG, building on completed project experience.",
+    },
   ],
-  log: [{date:'2026-11-11',title:'Where I am, and what comes next',text:'Python, SQL, machine learning, NLP and n8n are completed learning foundations. My current focus is Claude skills, AI agents, Higgsfield and automation. Next: deeper study of ANN, deep learning, LLMs and RAG.'}],
-  mediaTools: ['Premiere Pro','After Effects','Photoshop','Lightroom','Canva'],
-  mediaIntro: 'From the first idea to the final cut, I bring videography and editing together. My focus is the feeling of a film: the right frame, a deliberate camera move, and an edit that gives every moment room to land.',
+  log: [
+    {
+      date: "2026-11-11",
+      title: "Where I am, and what comes next",
+      text: "Python, SQL, machine learning, NLP and n8n are completed learning foundations. My current focus is Claude skills, AI agents, Higgsfield and automation. Next: deeper study of ANN, deep learning, LLMs and RAG.",
+    },
+  ],
+  mediaTools: [
+    "Premiere Pro",
+    "After Effects",
+    "Photoshop",
+    "Lightroom",
+    "Canva",
+  ],
+  mediaIntro:
+    "From the first idea to the final cut, I bring videography and editing together. My focus is the feeling of a film: the right frame, a deliberate camera move, and an edit that gives every moment room to land.",
   mediaCraft: [
-    {number:'01', title:'Behind the camera', subtitle:'VIDEOGRAPHY', text:'Build a visual story through composition, light and movement. Find the details that give a place, person or product its character.', terms:['Shot planning & visual references','Composition & framing','Camera movement & gimbal shots','Detail shots & supporting footage']},
-    {number:'02', title:'Inside the edit', subtitle:'VIDEO EDITING', text:'Turn raw footage into a clear, engaging sequence. Shape the story with shot selection, pacing and transitions that serve the moment.', terms:['Footage selection & organisation','Narrative structure & pacing','Music-led cuts & transitions','Reels & longer-form edits']},
-    {number:'03', title:'The finishing touches', subtitle:'POST-PRODUCTION', text:'Bring the film together through colour, sound and considered graphics. Keep the final delivery suited to the screen it will live on.', terms:['Colour correction & visual consistency','Titles, captions & motion accents','Audio balance & music timing','Platform-specific framing & exports']}
+    {
+      number: "01",
+      title: "Behind the camera",
+      subtitle: "VIDEOGRAPHY",
+      text: "Build a visual story through composition, light and movement. Find the details that give a place, person or product its character.",
+      terms: [
+        "Shot planning & visual references",
+        "Composition & framing",
+        "Camera movement & gimbal shots",
+        "Detail shots & supporting footage",
+      ],
+    },
+    {
+      number: "02",
+      title: "Inside the edit",
+      subtitle: "VIDEO EDITING",
+      text: "Turn raw footage into a clear, engaging sequence. Shape the story with shot selection, pacing and transitions that serve the moment.",
+      terms: [
+        "Footage selection & organisation",
+        "Narrative structure & pacing",
+        "Music-led cuts & transitions",
+        "Reels & longer-form edits",
+      ],
+    },
+    {
+      number: "03",
+      title: "The finishing touches",
+      subtitle: "POST-PRODUCTION",
+      text: "Bring the film together through colour, sound and considered graphics. Keep the final delivery suited to the screen it will live on.",
+      terms: [
+        "Colour correction & visual consistency",
+        "Titles, captions & motion accents",
+        "Audio balance & music timing",
+        "Platform-specific framing & exports",
+      ],
+    },
   ],
-  mediaToolDetails: ['Shape an edit from the first assembly to delivery: select takes, refine pacing, connect scenes and balance picture with sound.','Add movement with intention: animated titles, kinetic typography and graphic elements that support the story.','Create the supporting visuals around a film, from clean thumbnails to carefully layered graphic elements.','Build a consistent photographic look through exposure, contrast, colour and selective adjustments.','Design posters, social graphics and reel covers with a consistent look.'],
+  mediaToolDetails: [
+    "Shape an edit from the first assembly to delivery: select takes, refine pacing, connect scenes and balance picture with sound.",
+    "Add movement with intention: animated titles, kinetic typography and graphic elements that support the story.",
+    "Create the supporting visuals around a film, from clean thumbnails to carefully layered graphic elements.",
+    "Build a consistent photographic look through exposure, contrast, colour and selective adjustments.",
+    "Design posters, social graphics and reel covers with a consistent look.",
+  ],
   mediaToolSkills: [
-    ['Timeline organisation & rough cuts','J-cuts, L-cuts & match cuts','Speed ramps & beat-synced edits','Lumetri correction & shot matching','Audio levels, captions & exports'],
-    ['Keyframes & easing curves','Kinetic typography & title sequences','Masks, tracking & compositing','Motion accents & transitions'],
-    ['Layers, masks & selections','Retouching & compositing','Thumbnails & cover artwork','Typography & layout'],
-    ['Exposure & white balance','Tone curves & HSL adjustments','Selective masks & local edits','Consistent photo colour & exports'],
-    ['Poster design','Social post layouts','Reel covers','Reusable templates']
+    [
+      "Timeline organisation & rough cuts",
+      "J-cuts, L-cuts & match cuts",
+      "Speed ramps & beat-synced edits",
+      "Lumetri correction & shot matching",
+      "Audio levels, captions & exports",
+    ],
+    [
+      "Keyframes & easing curves",
+      "Kinetic typography & title sequences",
+      "Masks, tracking & compositing",
+      "Motion accents & transitions",
+    ],
+    [
+      "Layers, masks & selections",
+      "Retouching & compositing",
+      "Thumbnails & cover artwork",
+      "Typography & layout",
+    ],
+    [
+      "Exposure & white balance",
+      "Tone curves & HSL adjustments",
+      "Selective masks & local edits",
+      "Consistent photo colour & exports",
+    ],
+    [
+      "Poster design",
+      "Social post layouts",
+      "Reel covers",
+      "Reusable templates",
+    ],
   ],
   editingStyles: [
-    {title:'Cinematic storytelling',text:'Deliberate pacing, motivated transitions and space for atmosphere. Let the sequence build a feeling rather than simply move through shots.',tags:['Narrative flow','J-cuts & L-cuts','Sound-led transitions']},
-    {title:'High-energy reels',text:'A clear opening, tight selects and music-led rhythm. Use speed changes, punchy cuts and captions to keep a short piece moving.',tags:['Beat-sync','Speed ramps','Vertical framing']},
-    {title:'Clean, minimal edits',text:'Simple cuts, restrained graphics and a focus on the subject. Keep the message readable and give the strongest images room to work.',tags:['Match cuts','Subtle motion','Clear typography']},
-    {title:'Colour correction & grading',text:'Start with balanced exposure and white balance, match shots, then shape contrast, colour and mood. Keep skin tones and visual continuity in mind.',tags:['Shot matching','Curves & HSL','Creative looks']}
+    {
+      title: "Cinematic storytelling",
+      text: "Deliberate pacing, motivated transitions and space for atmosphere. Let the sequence build a feeling rather than simply move through shots.",
+      tags: ["Narrative flow", "J-cuts & L-cuts", "Sound-led transitions"],
+    },
+    {
+      title: "High-energy reels",
+      text: "A clear opening, tight selects and music-led rhythm. Use speed changes, punchy cuts and captions to keep a short piece moving.",
+      tags: ["Beat-sync", "Speed ramps", "Vertical framing"],
+    },
+    {
+      title: "Clean, minimal edits",
+      text: "Simple cuts, restrained graphics and a focus on the subject. Keep the message readable and give the strongest images room to work.",
+      tags: ["Match cuts", "Subtle motion", "Clear typography"],
+    },
+    {
+      title: "Colour correction & grading",
+      text: "Start with balanced exposure and white balance, match shots, then shape contrast, colour and mood. Keep skin tones and visual continuity in mind.",
+      tags: ["Shot matching", "Curves & HSL", "Creative looks"],
+    },
   ],
   mediaProcess: [
-    {title:'Find the story', text:'Start with the message, audience and feeling. Gather references and outline the shots that will carry the idea.'},
-    {title:'Capture with intent', text:'Plan framing and movement, then capture the key moments and supporting details that give the edit options.'},
-    {title:'Shape the rhythm', text:'Build the sequence, refine the pacing, and bring picture, music and sound into the same conversation.'},
-    {title:'Refine & deliver', text:'Review the cut, polish colour and graphics, then prepare the right framing and export for its destination.'}
+    {
+      title: "Find the story",
+      text: "Start with the message, audience and feeling. Gather references and outline the shots that will carry the idea.",
+    },
+    {
+      title: "Capture with intent",
+      text: "Plan framing and movement, then capture the key moments and supporting details that give the edit options.",
+    },
+    {
+      title: "Shape the rhythm",
+      text: "Build the sequence, refine the pacing, and bring picture, music and sound into the same conversation.",
+    },
+    {
+      title: "Refine & deliver",
+      text: "Review the cut, polish colour and graphics, then prepare the right framing and export for its destination.",
+    },
   ],
-  gearDetails: ['The camera at the centre of my filming setup.','A flexible focal range for wider scenes, closer details and portraits.','Controlled, stabilised camera movement for flowing shots.'],
-  gear: ['Sony a7 IV','G Master 24–70 mm','DJI RS 4'],
+  gearDetails: [
+    "The camera at the centre of my filming setup.",
+    "A flexible focal range for wider scenes, closer details and portraits.",
+    "Controlled, stabilised camera movement for flowing shots.",
+  ],
+  gear: ["Sony a7 IV", "G Master 24–70 mm", "DJI RS 4"],
   // Replace demo records with { title, role, tools, caption, url } for your real work.
   films: [
-    {title:'Motion & atmosphere',category:'CINEMATIC FILM',format:'Landscape · 16:9',role:'Videography & editing — demo',tools:'Premiere Pro · After Effects',caption:'An original animated demo exploring flowing shapes and a cinematic title treatment. This is a playback sample, not my client work.',story:'Use this space to explain the brief, what you filmed, how you approached the edit and the final result.',url:'./assets/demos/motion.mp4',poster:'./assets/demos/motion.jpg',demo:true},
-    {title:'A different perspective',category:'VISUAL STORY',format:'Landscape · 16:9',role:'Camera & post-production — demo',tools:'Premiere Pro · Lightroom',caption:'An original geometric motion demo exploring changing perspective. This is a playback sample, not my client work.',story:'Add the context, your responsibilities and the creative decisions behind the finished piece.',url:'./assets/demos/perspective.mp4',poster:'./assets/demos/perspective.jpg',demo:true},
-    {title:'Made for the moment',category:'SOCIAL REEL',format:'Vertical · 9:16',role:'Video editing — demo',tools:'Premiere Pro · After Effects',caption:'An original vertical motion demo for the reel viewer. This is a playback sample, not my client work.',story:'Describe your hook, footage selection, sound choices and how you adapted the edit for a vertical screen.',url:'./assets/demos/moment.mp4',poster:'./assets/demos/moment.jpg',demo:true}
-  ]
+    {
+      title: "Motion & atmosphere",
+      category: "CINEMATIC FILM",
+      format: "Landscape · 16:9",
+      role: "Videography & editing — demo",
+      tools: "Premiere Pro · After Effects",
+      caption:
+        "An original animated demo exploring flowing shapes and a cinematic title treatment. This is a playback sample, not my client work.",
+      story:
+        "Use this space to explain the brief, what you filmed, how you approached the edit and the final result.",
+      url: "./assets/demos/motion.mp4",
+      poster: "./assets/demos/motion.jpg",
+      demo: true,
+    },
+    {
+      title: "A different perspective",
+      category: "VISUAL STORY",
+      format: "Landscape · 16:9",
+      role: "Camera & post-production — demo",
+      tools: "Premiere Pro · Lightroom",
+      caption:
+        "An original geometric motion demo exploring changing perspective. This is a playback sample, not my client work.",
+      story:
+        "Add the context, your responsibilities and the creative decisions behind the finished piece.",
+      url: "./assets/demos/perspective.mp4",
+      poster: "./assets/demos/perspective.jpg",
+      demo: true,
+    },
+    {
+      title: "Made for the moment",
+      category: "SOCIAL REEL",
+      format: "Vertical · 9:16",
+      role: "Video editing — demo",
+      tools: "Premiere Pro · After Effects",
+      caption:
+        "An original vertical motion demo for the reel viewer. This is a playback sample, not my client work.",
+      story:
+        "Describe your hook, footage selection, sound choices and how you adapted the edit for a vertical screen.",
+      url: "./assets/demos/moment.mp4",
+      poster: "./assets/demos/moment.jpg",
+      demo: true,
+    },
+  ],
 };
