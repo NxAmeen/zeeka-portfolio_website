@@ -5,7 +5,7 @@ const escape = s => String(s).replace(/[&<>"']/g, x => ({'&':'&amp;','<':'&lt;',
 const safeUrl = url => { try { const u = new URL(url, location.href); return ['https:','http:'].includes(u.protocol) ? u.href : null; } catch { return null; } };
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 $('.hero-brief').textContent=c.brief;
-$('.cv-link').href=c.cv;
+document.querySelectorAll('.cv-link').forEach(link=>link.href=c.cv);
 document.querySelectorAll('.email-link').forEach(a=>a.href=`mailto:${c.email}`);
 $('.email-text').textContent=c.email;$('.whatsapp-link').href=c.whatsapp;$('#year').textContent=new Date().getFullYear();
 $('#skills').innerHTML=c.skills.map(s=>`<article class="skill reveal"><span class="skill-icon">${escape(s.icon)}</span><h3>${escape(s.name)}</h3><p>${escape(s.detail)}</p><details><summary>Explore skills</summary><ul>${s.terms.map(t=>`<li>${escape(t)}</li>`).join('')}</ul></details>${s.examples?`<ul class="skill-builds" aria-label="Related projects">${s.examples.map(x=>`<li><div><strong>${escape(x.title)}</strong><small>${escape(x.status)}</small></div><p>${escape(x.text)}</p></li>`).join('')}</ul>`:''}</article>`).join('');
